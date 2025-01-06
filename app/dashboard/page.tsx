@@ -1,25 +1,31 @@
-import AppSidebar from '@/components/widgets/AppSidebar';
+
 import React from 'react';
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { AppSidebar } from '@/components/widgets/AppSidebar';
 
-const page = ({children}: {children: React.ReactNode}) => {
+const page = ({ children }: { children: React.ReactNode }) => {
     return (
-        <SidebarProvider>
+        <SidebarProvider
+            className='w-[20rem]'
+        >
             <main className='relative flex  w-full '>
-                <AppSidebar />
+                <div className="bg-[#fffbf3] py-3">
+                    <AppSidebar />
+                </div>
 
-                <section className="bg-gray-600 h-screen w-full">
+
+                <main className=" h-screen w-full py-3">
                     <SidebarTrigger />
 
-                    <div className="text-2xl text-grey-600 w-full">
-                        main content
+                    <section className="p-4 text-2xl text-grey-600 w-full">
+                        section content
 
-                        <div>
+                        <div className='bg-[#f6f6f6]'>
                             {children}
                         </div>
-                    </div>
+                    </section>
 
-                </section>
+                </main>
             </main>
         </SidebarProvider>
     )
