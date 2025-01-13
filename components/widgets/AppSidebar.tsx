@@ -40,7 +40,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <ul className='mt-[80px] space-y-[24px]'>
           <li>
-
             <Link
               className={`${pathname === '/dashboard' ? "bg-[#A57D3F1A] text-gold" : "text-[#1a1a1a] bg-transparent"} px-[12px] py-[8px] flex items-center space-x-4 rounded-[8px] `}
               href="/dashboard"
@@ -55,40 +54,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             </Link>
           </li>
 
-          <li>
-            <Link
-              className={`${pathname === '/dashboard/applicants' ? "bg-[#A57D3F1A] text-gold" : "text-[#1a1a1a] bg-transparent"} px-[12px] py-[8px] flex items-center space-x-4 rounded-[8px] `}
-              href="/dashboard/applicants"
-            >
-              <UsersRound className="text-[24px]" />
-              <p className='font-medium text-sm '>
-                Applicants
-              </p>
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              className={`${pathname === '/dashboard/benchmark' ? "bg-[#A57D3F1A] text-gold" : "text-[#1a1a1a] bg-transparent"} px-[12px] py-[8px] flex items-center space-x-4 rounded-[8px] `}
-              href="/dashboard/benchmark"
-            >
-              <Flag className="text-[24px]" />
-
-              <p className='font-medium text-sm '>
-                Benchmark
-              </p>
-            </Link>
-          </li>
-
-          <li>
-            <button className='rounded-[8px] bg-white px-[12px] py-[8px] flex items-center space-x-4' >
-
-              <LogOut className="text-[#FF0000] text-[24px]" />
-              <p className='text-[#FF0000] font-medium text-sm '>
-                Log out
-              </p>
-            </button>
-          </li>
+         
         </ul>
 
 
