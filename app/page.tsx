@@ -13,6 +13,8 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import TablePagination from '@mui/material/TablePagination';
+import Image from 'next/image';
+import SubscribeForm from '@/components/SusbscribeForm';
 
 export default function Home() {
 
@@ -20,6 +22,7 @@ export default function Home() {
   const [page, setPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(6);
   const [total, setTotal] = useState(0);
+  const [photos, setPhotos] = useState([]);
 
 
 
@@ -36,10 +39,21 @@ export default function Home() {
     }
   }
 
+  const getPhotos = async () => {
+    try {
+      const response = await axios.get(`https://reqres.in/api/users?page=2`);
+      console.log("res", response.data.data);
+      setPhotos(response.data.data);
+    } catch (error: any) {
+
+    }
+  }
+
   const handleChangePage = (event: any, newPage: any) => {
     setPage(newPage);
     getPosts(newPage + 1);
   };
+
 
   const handleChangeRowsPerPage = (event: any) => {
     setRowsPerPage(parseInt(event.target.value, 10));
@@ -53,9 +67,14 @@ export default function Home() {
     getPosts(page);
   }, [rowsPerPage])
 
+  useEffect(() => {
+    getPhotos();
+  }, [])
+
   return (
     <main>
-      <div className="mt-[40px] overflow-x-auto">
+      <SubscribeForm />
+      <div className="hidden mt-[40px] overflow-x-auto">
         <table className="w-full mt-[24px]">
           <thead className="bg-[#EEEEEE] py-4">
             <tr className=" w-full">
@@ -118,6 +137,33 @@ export default function Home() {
           />
 
         </div>
+      </div>
+
+      <h1 className='text-[36px] pt-20 mb-4 px-10 font-medium'>Authors</h1>
+      <div className="px-10 grid lg:grid-cols-5 grid-cols-3 gap-6">
+        {
+          photos.map((photo: any) => (
+            <div key={photo?.id} className='rounded-lg bg-[#efefef] p-3 '>
+              <div className='flex justify-center'>
+                <Image
+                  className='rounded-lg blur-sm hover:blur-0 transition ease-in'
+                  src={photo?.avatar}
+                  alt={photo?.last_name}
+                  width={350}
+                  height={350}
+                  placeholder='blur'
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNcea26FAAGmwJxzoZWNAAAAABJRU5ErkJggg=="
+                />
+              </div>
+              <p className='mt-4 lg:text-[22px] text-lg'>
+                {photo?.first_name} {photo?.last_name}
+              </p>
+              <p className='mt-1 text-sm lg:text-base'>
+
+              </p>
+            </div>
+          ))
+        }
       </div>
     </main>
   );
