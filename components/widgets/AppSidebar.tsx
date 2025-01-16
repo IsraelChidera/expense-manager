@@ -3,9 +3,12 @@
 import * as React from "react"
 import {
 
+  FileClock,
   Flag,
   GalleryVerticalEnd,
+  HandCoins,
   LayoutDashboard,
+  LayoutDashboardIcon,
   LogOut,
 
   UsersRound,
@@ -15,7 +18,11 @@ import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
+  SidebarGroup,
   SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar";
 import Link from "next/link";
@@ -24,43 +31,50 @@ import { usePathname } from "next/navigation";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const pathname = usePathname();
+
   return (
-    <Sidebar collapsible="icon" {...props}>
+    <Sidebar collapsible="icon" {...props} className="py-4 bg-primaryText">
       <SidebarHeader>
-        <div className="flex items-center space-x-3">
+        <div className="text-white flex items-center space-x-3">
           <div className="flex aspect-square size-8 items-center justify-center rounded-lg">
-            <GalleryVerticalEnd />
+            <GalleryVerticalEnd className="text-3xl" />
           </div>
 
-          <span className="truncate font-semibold">
-            Expense Manager
+          <span className="text-2xl truncate font-semibold">
+            Expensify
           </span>
         </div>
       </SidebarHeader>
-      <SidebarContent>
-        <ul className='mt-[80px] space-y-[24px]'>
-          <li>
-            <Link
-              className={`${pathname === '/dashboard' ? "bg-[#A57D3F1A] text-gold" : "text-[#1a1a1a] bg-transparent"} px-[12px] py-[8px] flex items-center space-x-4 rounded-[8px] `}
-              href="/dashboard"
-            >
-              <div className="flex aspect-square size-8 items-center justify-center rounded-lg">
-                <LayoutDashboard className="text-[24px]" />
-              </div>
 
-              <span className="truncate font-medium text-sm">
-                Dashboard
-              </span>
-            </Link>
-          </li>
+      <SidebarContent className="pt-10">
+        <SidebarGroup>
+          <SidebarMenu>
+            <SidebarMenuItem className="space-y-6">
+              <Link href="/">
+                <SidebarMenuButton className={`${pathname === "/dashboard" ? "bg-white" : "null hover:bg-yellow-500"} `}>
+                  <LayoutDashboardIcon className={`${pathname === "/dashboard" ? "text-primaryText" : "text-white"}  text-2xl`} />
 
-         
-        </ul>
+                  <span className={`${pathname === "/dashboard" ? "font-medium text-primaryText" : "text-white"} text-base`}>Dashboard</span>
+                </SidebarMenuButton>
+              </Link>
 
+              <SidebarMenuButton className={`${pathname === "/" ? "bg-white " : "null hover:bg-yellow-500"} `}>
+                <FileClock className={`${pathname === "/" ? "text-primaryText" : "text-white"}  text-2xl`} />
+                <span className={`${pathname === "/a" ? "font-bold text-primaryText" : "text-white"} text-base`}>Items</span>
+              </SidebarMenuButton>
+
+              <SidebarMenuButton className={`${pathname === "/" ? "bg-white" : "null hover:bg-yellow-500"} `}>
+                <HandCoins className={`${pathname === "/" ? "text-primaryText" : "text-white"}  text-2xl`} />
+                <span className={`${pathname === "/b" ? "font-bold text-primaryText" : "text-white"} text-base`}>Items</span>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </SidebarGroup>
 
       </SidebarContent>
+
       <SidebarFooter>
-        {/* <NavUser user={data.user} /> */}
+
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>

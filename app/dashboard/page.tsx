@@ -6,10 +6,10 @@ import { AppSidebar } from '@/components/widgets/AppSidebar';
 const page = ({ children }: { children: React.ReactNode }) => {
     return (
         <SidebarProvider
-            className='w-[20rem]'
+            className='w-[20rem] py-4'
         >
             <main className='relative flex  w-full '>
-                <div className="bg-[#fffbf3] py-3">
+                <div>
                     <AppSidebar />
                 </div>
 
