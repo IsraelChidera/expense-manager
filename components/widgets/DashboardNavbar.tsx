@@ -9,7 +9,7 @@ import { ChevronDown, FileClockIcon, NotebookPenIcon, User2Icon } from 'lucide-r
 const DashboardNavbar = () => {
     return (
         <nav className='w-full'>
-            <Container>
+            <>
                 <div className='flex items-center justify-between'>
                     <div className='flex flex-1 items-center space-x-2'>
                         <SidebarTrigger className="text-2xl" />
@@ -42,7 +42,7 @@ const DashboardNavbar = () => {
                         </div>
                     </div>
                 </div>
-            </Container>
+            </>
         </nav>
     )
 }

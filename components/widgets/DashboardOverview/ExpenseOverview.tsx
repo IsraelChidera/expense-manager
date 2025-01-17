@@ -6,7 +6,7 @@ import Link from 'next/link';
 const ExpenseOverview = () => {
     return (
         <section className='py-20'>
-            <Container>
+            <>
                 <div className='grid grid-cols-4 gap-6'>
                     <div className='border border-[#D3CBFB] rounded-[20px] p-[25px] '>
                         <div className='flex justify-between items-center'>
@@ -129,7 +129,7 @@ const ExpenseOverview = () => {
                         </tbody>
                     </table>
                 </div>
-            </Container>
+            </>
         </section>
     )
 }

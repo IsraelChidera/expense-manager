@@ -69,7 +69,7 @@ console.log(quickActions);
 const WeekSpend = () => {
     return (
         <section>
-            <Container>
+            <>
                 <div className='grid grid-cols-5 gap-10'>
                     <div className='col-span-2 '>
                         <div className="flex items-center justify-between mb-6">
@@ -132,7 +132,7 @@ const WeekSpend = () => {
                                 </Fab>
                             </div>
 
-                            <div className='mt-[27px] pt-6 border-t border-t-[#D7D7D7] grid grid-cols-3 gap-6 h-[318px] overflow-y-auto'>
+                            <div className='mt-[27px] pt-6 border-t border-t-[#D7D7D7] grid grid-cols-3 gap-6 h-[318px] overflow-y-auto' style={{ overflowX: "scroll", scrollbarColor: "#5041BC #efefef", scrollbarWidth: "thin" }}>
                                 {
                                     quickActions.map((Action: QuickActionsType) => (
                                         <div key={Action.id} className='cursor-pointer bg-[#F4F4F4] rounded-[24px] flex justify-center items-center py-3 px-10'>
@@ -151,7 +151,7 @@ const WeekSpend = () => {
                         </div>
                     </div>
                 </div>
-            </Container>
+            </>
         </section>
     )
 }

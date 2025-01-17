@@ -5,9 +5,9 @@ import WeekSpend from './DashboardOverview/WeekSpend';
 const DashboardOverview = () => {
     return (
         <section className='mt-16'>
-            <Container>
+            <>
                 <WeekSpend />
-            </Container>
+            </>
         </section>
     )
 }
