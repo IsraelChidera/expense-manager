@@ -51,19 +51,19 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarMenu>
             <SidebarMenuItem className="space-y-6">
               <Link href="/">
-                <SidebarMenuButton className={`${pathname === "/dashboard" ? "bg-white" : "null hover:bg-yellow-500"} `}>
+                <SidebarMenuButton className={`${pathname === "/dashboard" ? "bg-white" : "null hover:bg-[#FFC248]"} `}>
                   <LayoutDashboardIcon className={`${pathname === "/dashboard" ? "text-primaryText" : "text-white"}  text-2xl`} />
 
                   <span className={`${pathname === "/dashboard" ? "font-medium text-primaryText" : "text-white"} text-base`}>Dashboard</span>
                 </SidebarMenuButton>
               </Link>
 
-              <SidebarMenuButton className={`${pathname === "/" ? "bg-white " : "null hover:bg-yellow-500"} `}>
+              <SidebarMenuButton className={`${pathname === "/" ? "bg-white " : "null hover:bg-[#FFC248]"} `}>
                 <FileClock className={`${pathname === "/" ? "text-primaryText" : "text-white"}  text-2xl`} />
                 <span className={`${pathname === "/a" ? "font-bold text-primaryText" : "text-white"} text-base`}>Items</span>
               </SidebarMenuButton>
 
-              <SidebarMenuButton className={`${pathname === "/" ? "bg-white" : "null hover:bg-yellow-500"} `}>
+              <SidebarMenuButton className={`${pathname === "/" ? "bg-white" : "null hover:bg-[#FFC248]"} `}>
                 <HandCoins className={`${pathname === "/" ? "text-primaryText" : "text-white"}  text-2xl`} />
                 <span className={`${pathname === "/b" ? "font-bold text-primaryText" : "text-white"} text-base`}>Items</span>
               </SidebarMenuButton>
